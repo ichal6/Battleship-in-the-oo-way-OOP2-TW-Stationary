@@ -9,7 +9,7 @@ public class Square {
         isShipPart = true;
     }
 
-    public boolean void getIsShipPart(){
+    public boolean getIsShipPart(){
         return isShipPart;
     }
 }
