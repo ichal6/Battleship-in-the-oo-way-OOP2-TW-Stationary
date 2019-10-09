@@ -8,9 +8,7 @@ public class SinglePlayer{
     User comp = new User(false);
     Ocean userOcean = new Ocean();
     Ocean compOcean = comp.makeBoardWithRandomShips();
-    //dokonczyc metode
-    
-
+ 
     public void initGame(){
         
         System.out.println("Please provide coordinates for Carrier:");
