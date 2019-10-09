@@ -50,25 +50,31 @@ public class User
 
     public Ocean makeBoardWithRandomShips()
     {
+        boolean successfullyAdded;
         Ocean randomShipsOcean = new Ocean();
-        int x = rand.nextInt(10);
-        int y = rand.nextInt(10);
-        boolean isHorizontal = rand.nextBoolean();
-        randomShipsOcean.addShip(x, y, 5, isHorizontal);
+        int x;
+        int y;
+        boolean isHorizontal;
 
+        int[] shipTypes = {5, 4, 3, 3, 2};
 
-        randomShipsOcean.addShip(x, y, 4, isHorizontal);
-        randomShipsOcean.addShip(x, y, 3, isHorizontal);
-        randomShipsOcean.addShip(x, y, 3, isHorizontal);
-        randomShipsOcean.addShip(x, y, 2, isHorizontal);
-
+        for( int element : shipTypes){
+            do{
+                x = rand.nextInt(10);
+                y = rand.nextInt(10);
+    
+                isHorizontal = rand.nextBoolean();
+                successfullyAdded = randomShipsOcean.addShip(x, y, element, isHorizontal);
+            }
+            while(successfullyAdded == false);
+        }
         return randomShipsOcean;
     }
 
     public boolean getUserOrientation(){
         System.out.println("Ship horizontal? (Y)es or (N)o");
         String orientation = input.nextLine();
-        if (orientation.equalsIgnoreCase("y")){
+        if (orientation.equalsIgnoreCase("y")){ 
             return true;
         }
         return false;
