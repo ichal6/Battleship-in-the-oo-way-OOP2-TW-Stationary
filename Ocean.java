@@ -37,7 +37,7 @@ public class Ocean {
             roundsOfShip.add(board[x-1][y]);
             roundsOfShip.add(board[x+length][y]);
             for (int i = 0; i < length; i++){
-                roundsOfShip.add(board[x-i][y-1]);
+                roundsOfShip.add(board[x+i][y-1]);
                 roundsOfShip.add(board[x+i][y+1]);
             }    
         }
