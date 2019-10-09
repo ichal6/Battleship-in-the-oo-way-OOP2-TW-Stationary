@@ -4,15 +4,12 @@ public class SinglePlayer{
     int carrierShip = 5;
     int compShipsToShoot;
     int userShipsToShoot;
+    User user = new User(true);
+    User comp = new User(false);
+    Ocean userOcean = new Ocean();
+    Ocean compOcean = comp.makeBoardWithRandomShips();
+    //dokonczyc metode
     
-
-    SinglePlayer(){
-        User user = new User(true);
-        User comp = new User(false);
-        Ocean userOcean = new Ocean();
-        Ocean compOcean = comp.makeBoardWithRandomShips();
-        //dokonczyc metode
-    }
 
     public void initGame(){
         
@@ -20,7 +17,8 @@ public class SinglePlayer{
         int x = user.getInputXGuess();
         int y = user.getInputYGuess();
         int lenght = carrierShip;
-        user.addShip(x, y, lenght, user.getUserOrientation());
+        boolean isHorizontal = user.getUserOrientation();
+        userOcean.addShip(x, y, lenght, isHorizontal);
         //dodac pozostale statki
 
         
