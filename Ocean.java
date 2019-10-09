@@ -123,7 +123,7 @@ public class Ocean {
                 board[x][y].setIsShotCorrect();
             }
         }
-        
+        board[x][y].setIsShotIncorrect();
     }
 
 

@@ -1,6 +1,7 @@
 public class Square {
     private boolean isShipPart;
     private boolean isShotCorrect;
+    private boolean isShotIncorrect;
     private int x, y;
 
     Square(int x, int y){
@@ -21,8 +22,21 @@ public class Square {
         isShotCorrect = true;
     }
 
+    public void setIsShotIncorrect(){
+        isShotIncorrect = true;
+    }
+
     public String toStringView(){
-        String content = (isShotCorrect) ? "X" : "O";
+        String content = "";
+        if (isShotCorrect){
+            content = "X";
+        }
+        else if(isShotIncorrect){
+            content = "O";
+        }
+        else{
+            content = "-";
+        }
         return content;
     }
 
