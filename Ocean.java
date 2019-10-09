@@ -16,7 +16,7 @@ public class Ocean {
     private void initializeBoard(){
         for(int x = 0; x < boardLimit; x++){
             for(int y = 0; y < boardLimit; y++){
-                board[x][y] = new Square();
+                board[x][y] = new Square(x, y);
             }
         }
     }
@@ -106,4 +106,25 @@ public class Ocean {
             System.out.print("\n");
         }
     }
+
+    public void printBoardView(){
+        for(int x = 0; x < boardLimit; x++){
+            for(int y = 0; y < boardLimit; y++){
+                Square boardSquare = board[x][y];
+                System.out.print(boardSquare.toStringView());
+            }
+            System.out.print("\n");
+        }
+    }
+
+    public void checkIfShotCorrect(int x, int y){
+        for(Square element : shipOfSquares){
+            if(element.getX() == x && element.getY() == y){
+                board[x][y].setIsShotCorrect();
+            }
+        }
+        
+    }
+
+
 }
