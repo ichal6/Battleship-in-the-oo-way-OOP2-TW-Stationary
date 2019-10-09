@@ -56,8 +56,8 @@ public class Ocean {
         return true;   
     }
 
-    private boolean checkOutOfBounds(int x, int y, int length){
-        if ((x<= 0 || x >= length-1) || (y <=0 || y >= length-1) ){
+    private boolean checkOutOfBounds(int x, int y){
+        if ((x<= 0 || x >= boardLimit-1) || (y <=0 || y >= boardLimit-1) ){
             return true;
         }
         return false;
@@ -67,7 +67,7 @@ public class Ocean {
         Square[] shipElements = new Square[length];
         if(isHorizontal){
             for(int i = 0; i < length; i++){
-                if (checkOutOfBounds(x, y+i, length)){
+                if (checkOutOfBounds(x, y+i)){
                     return false;
                 }
                 if (checkIfOnLists(board[x][y+i], roundsOfShip, shipOfSquares) == false){
@@ -80,7 +80,7 @@ public class Ocean {
         else {
 
             for(int i = 0; i < length; i++){
-                if (checkOutOfBounds(x+i, y, length)){
+                if (checkOutOfBounds(x+i, y)){
                     return false;
                 }
                 if (checkIfOnLists(board[x+i][y], roundsOfShip, shipOfSquares) == false){
