@@ -4,8 +4,8 @@ public class Ocean {
     int boardLimit = 10;
     Square[][] board;
     ArrayList<Ship> ships;
-    ArrayList<Square> roundsOfShip;
-    ArrayList<Square> shipOfSquares;
+    ArrayList<Square> roundsOfShip = new ArrayList<>();
+    ArrayList<Square> shipOfSquares = new ArrayList<>();
 
     Ocean(){
         ships = new ArrayList<Ship>();
@@ -22,7 +22,7 @@ public class Ocean {
     }
 
     private void addRoundsOfShip(int x, int y, int length, boolean isHorizontal){
-        roundsOfShip = new ArrayList<>();
+        ;
         if (isHorizontal){
             roundsOfShip.add(board[x][y-1]);
             roundsOfShip.add(board[x][y+length]);
@@ -44,6 +44,9 @@ public class Ocean {
 
 
     private boolean checkIfOnLists(Square square, ArrayList<Square> roundsOfShip, ArrayList<Square> shipOfSquares){
+        if (roundsOfShip.isEmpty()){
+            return true;
+        }
         boolean isOnShipList = shipOfSquares.contains(square);
         boolean isOnRoundsOfShipList = roundsOfShip.contains(square);
 
