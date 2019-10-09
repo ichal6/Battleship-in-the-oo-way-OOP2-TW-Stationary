@@ -65,6 +65,15 @@ public class User
         return randomShipsOcean;
     }
 
+    public boolean getUserOrientation(){
+        System.out.println("Ship horizontal? (Y)es or (N)o");
+        String orientation = input.nextLine();
+        if (orientation.equalsIgnoreCase("y")){
+            return true;
+        }
+        return false;
+    }
+
 
 
 }

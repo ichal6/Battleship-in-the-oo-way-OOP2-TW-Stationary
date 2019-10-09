@@ -6,6 +6,7 @@ public class Ocean {
     ArrayList<Ship> ships;
     ArrayList<Square> roundsOfShip = new ArrayList<>();
     ArrayList<Square> shipOfSquares = new ArrayList<>();
+    int shipsToShoot = 17;
 
     Ocean(){
         ships = new ArrayList<Ship>();
@@ -117,13 +118,15 @@ public class Ocean {
         }
     }
 
-    public void checkIfShotCorrect(int x, int y){
+    public int checkIfShotCorrect(int x, int y){
         for(Square element : shipOfSquares){
             if(element.getX() == x && element.getY() == y){
                 board[x][y].setIsShotCorrect();
+                shipsToShoot--;
             }
         }
         board[x][y].setIsShotIncorrect();
+        return shipsToShoot;
     }
 
 
