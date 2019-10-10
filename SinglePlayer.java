@@ -1,4 +1,5 @@
-
+import java.util.*;
+import java.util.Map.Entry;
 public class SinglePlayer{
 
     int carrierShip = 5;
@@ -10,23 +11,34 @@ public class SinglePlayer{
     Ocean compOcean = comp.makeBoardWithRandomShips();
  
     public void initGame(){
-        
-        System.out.println("Please provide coordinates for Carrier:");
-        int x = user.getInputXGuess();
-        int y = user.getInputYGuess();
-        int lenght = carrierShip;
-        boolean isHorizontal = user.getUserOrientation();
-        userOcean.addShip(x, y, lenght, isHorizontal);
-        //dodac pozostale statki
 
-        
+        Map<String, Integer> shipTypes = new HashMap<String, Integer>();
+        shipTypes.put("Carrier", 5);
+        shipTypes.put("Battleship", 4);
+        shipTypes.put("Cruiser", 3);
+        shipTypes.put("Submarine", 3);
+        shipTypes.put("Destroyer", 2);
 
-         
+        for (Entry<String, Integer> entry : shipTypes.entrySet()) {
+            String ship = entry.getKey();
+            int mast = entry.getValue();
+            boolean isAdded;
+            do{
+                System.out.println("Please provide coordinates for " + ship + " :");
+                int x = user.getInputXGuess();
+                int y = user.getInputYGuess();
+                int lenght = mast;
+                boolean isHorizontal = user.getUserOrientation();
+                isAdded = userOcean.addShip(x, y, lenght, isHorizontal);
+                if (isAdded == false){
+                    System.out.println("You cannot use such coordinates!");
+                }
+            }
+            while (isAdded == false);
 
-        
+        }
 
     }
-
 
     public void game(){
         while (userShipsToShoot > 0 && compShipsToShoot >0){
