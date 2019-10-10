@@ -62,7 +62,7 @@ public class Multiplayer{
         int x = user.getInputXGuess();
         int y = user.getInputYGuess();
         otherUserShipsToShoot = otherUserOcean.checkIfShotCorrect(x, y);
-        System.out.println("\nComputer's board:");
+        System.out.println("\nEnemy's board:");
         otherUserOcean.printBoardView();
     }
 
