@@ -33,6 +33,10 @@ public class SinglePlayer{
                 if (isAdded == false){
                     System.out.println("You cannot use such coordinates!");
                 }
+                else{
+                    System.out.println("Your board:");
+                    userOcean.printBoard(); 
+                }
             }
             while (isAdded == false);
 
@@ -55,8 +59,8 @@ public class SinglePlayer{
         compShipsToShoot = compOcean.checkIfShotCorrect(x, y);
         System.out.println("\nComputer's board:");
         compOcean.printBoardView();
-        System.out.println("");
-        compOcean.printBoard();
+        // System.out.println("");
+        // compOcean.printBoard();
     }
 
     public void compMove(){
@@ -65,6 +69,8 @@ public class SinglePlayer{
         userShipsToShoot = userOcean.checkIfShotCorrect(x, y);
         System.out.println("\nYour board: ");
         userOcean.printBoardView();
+        // System.out.println("\n");
+        // userOcean.printBoard();
     }
 
 
