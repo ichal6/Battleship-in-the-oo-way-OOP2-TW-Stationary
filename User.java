@@ -56,7 +56,7 @@ public class User
         int y;
         boolean isHorizontal;
 
-        int[] shipTypes = {5, 4, 3, 3, 2};
+        int[] shipTypes = {5, 4, 3, 3};
 
         for( int element : shipTypes){
             do{
@@ -73,6 +73,7 @@ public class User
 
     public boolean getUserOrientation(){
         System.out.println("Ship horizontal? (Y)es or (N)o");
+        input.nextLine();
         String orientation = input.nextLine();
         if (orientation.equalsIgnoreCase("y")){ 
             return true;

@@ -2,8 +2,8 @@
 public class SinglePlayer{
 
     int carrierShip = 5;
-    int compShipsToShoot;
-    int userShipsToShoot;
+    int compShipsToShoot = 2;
+    int userShipsToShoot = 17;
     User user = new User(true);
     User comp = new User(false);
     Ocean userOcean = new Ocean();
@@ -41,13 +41,18 @@ public class SinglePlayer{
         int x = user.getInputXGuess();
         int y = user.getInputYGuess();
         compShipsToShoot = compOcean.checkIfShotCorrect(x, y);
+        System.out.println("\nComputer's board:");
         compOcean.printBoardView();
+        System.out.println("");
+        compOcean.printBoard();
     }
 
     public void compMove(){
         int x = comp.getRandomXGuess();
         int y = comp.getRandomYGuess();
         userShipsToShoot = userOcean.checkIfShotCorrect(x, y);
+        System.out.println("\nYour board: ");
+        userOcean.printBoardView();
     }
 
 
