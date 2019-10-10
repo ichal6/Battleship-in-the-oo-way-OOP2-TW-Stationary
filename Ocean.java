@@ -25,20 +25,28 @@ public class Ocean {
     private void addRoundsOfShip(int x, int y, int length, boolean isHorizontal){
         ;
         if (isHorizontal){
-            roundsOfShip.add(board[x][y-1]);
-            roundsOfShip.add(board[x][y+length]);
+            if (y != 0)
+                roundsOfShip.add(board[x][y-1]);
+            if (y+length <= boardLimit-1)
+                roundsOfShip.add(board[x][y+length]);
     
             for (int i = 0; i < length; i++){
-                roundsOfShip.add(board[x-1][y+i]);
+                if (x != 0 && y != boardLimit-1)
+                    roundsOfShip.add(board[x-1][y+i]);
+                if (x != boardLimit-1 && y != boardLimit-1)
                 roundsOfShip.add(board[x+1][y+i]);
             }
         }
         else{
-            roundsOfShip.add(board[x-1][y]);
-            roundsOfShip.add(board[x+length][y]);
+            if (x != 0)
+                roundsOfShip.add(board[x-1][y]);
+            if (x+length <= boardLimit-1)
+                roundsOfShip.add(board[x+length][y]);
             for (int i = 0; i < length; i++){
-                roundsOfShip.add(board[x+i][y-1]);
-                roundsOfShip.add(board[x+i][y+1]);
+                if (x != boardLimit-1 && y != 0)
+                    roundsOfShip.add(board[x+i][y-1]);
+                if (x != boardLimit-1 && y != boardLimit-1)
+                    roundsOfShip.add(board[x+i][y+1]);
             }    
         }
     }
@@ -58,7 +66,7 @@ public class Ocean {
     }
 
     private boolean checkOutOfBounds(int x, int y){
-        if ((x<= 0 || x >= boardLimit-1) || (y <=0 || y >= boardLimit-1) ){
+        if ((x < 0 || x > boardLimit-1) || (y < 0 || y > boardLimit-1) ){
             return true;
         }
         return false;
