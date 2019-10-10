@@ -10,15 +10,18 @@ public class Main {
         int chosenMode = input.nextInt();
         switch(chosenMode){
             case 1:
-                Simulation game2 = new Simulation();
-                game2.game();
+                Simulation game1 = new Simulation();
+                game1.game();
                 break;
             case 2:
-                SinglePlayer game = new SinglePlayer();
-                game.initGame();
-                game.game();
+                SinglePlayer game2 = new SinglePlayer();
+                game2.initGame();
+                game2.game();
                 break;
             case 3:
+                Multiplayer game3 = new Multiplayer();
+                game3.startGame();
+                game3.game();
                 break;
         }
     }
