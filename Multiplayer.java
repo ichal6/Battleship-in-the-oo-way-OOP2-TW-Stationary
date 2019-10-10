@@ -1,5 +1,6 @@
 import java.util.*;
 import java.util.Map.Entry;
+import java.util.concurrent.TimeUnit;
 
 public class Multiplayer{
     int user1ShipsToShoot = 17;
@@ -52,7 +53,21 @@ public class Multiplayer{
     public void game(){
         while (user1ShipsToShoot > 0 && user2ShipsToShoot >0){
             userMove(user1, user2Ocean, user2ShipsToShoot);
+            try{
+                TimeUnit.SECONDS.sleep(1);
+            }
+            catch(InterruptedException ex){
+                Thread.currentThread().interrupt();
+            }
+            clearScreen();
             userMove(user2, user1Ocean, user1ShipsToShoot);
+            try{
+                TimeUnit.SECONDS.sleep(1);
+            }
+            catch(InterruptedException ex){
+                Thread.currentThread().interrupt();
+            }
+            clearScreen();
 
         }
     }
@@ -64,6 +79,11 @@ public class Multiplayer{
         otherUserShipsToShoot = otherUserOcean.checkIfShotCorrect(x, y);
         System.out.println("\nEnemy's board:");
         otherUserOcean.printBoardView();
+    }
+
+    public static void clearScreen() {  
+        System.out.print("\033[H\033[2J");  
+        System.out.flush();  
     }
 
 }
