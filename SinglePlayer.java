@@ -2,8 +2,7 @@ import java.util.*;
 import java.util.Map.Entry;
 public class SinglePlayer{
 
-    int carrierShip = 5;
-    int compShipsToShoot = 2;
+    int compShipsToShoot = 17;
     int userShipsToShoot = 17;
     User user = new User(true);
     User comp = new User(false);

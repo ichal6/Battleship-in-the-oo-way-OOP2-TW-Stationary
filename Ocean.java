@@ -6,7 +6,7 @@ public class Ocean {
     ArrayList<Ship> ships;
     ArrayList<Square> roundsOfShip = new ArrayList<>();
     ArrayList<Square> shipOfSquares = new ArrayList<>();
-    int shipsToShoot = 2;
+    int shipsToShoot = 17;
 
     Ocean(){
         ships = new ArrayList<Ship>();
