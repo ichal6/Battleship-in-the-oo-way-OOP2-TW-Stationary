@@ -56,7 +56,7 @@ public class User
         int y;
         boolean isHorizontal;
 
-        int[] shipTypes = {5, 4, 3, 3};
+        int[] shipTypes = {5, 4, 3, 3, 2};
 
         for( int element : shipTypes){
             do{
