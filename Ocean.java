@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 public class Ocean {
-    int boardLimit = 10;
+    int boardLimit = 12;
     Square[][] board;
     ArrayList<Ship> ships;
     ArrayList<Square> roundsOfShip = new ArrayList<>();

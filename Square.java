@@ -3,6 +3,7 @@ public class Square {
     private boolean isShotCorrect;
     private boolean isShotIncorrect;
     private int x, y;
+    
 
     Square(int x, int y){
         this.x = x;
@@ -10,8 +11,7 @@ public class Square {
     }
 
     public String toString(){
-        String content = (isShipPart) ? "X" : "-";
-        return content;
+        return (isShipPart) ? "X" : "-";
     }
 
     public void setIsShipPart(){
